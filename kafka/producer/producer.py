@@ -16,7 +16,6 @@ brokers=kafka_broker_list
 kafka_topic=kafka_local_topic,
 # A Kafka client that publishes records to the Kafka cluster
 producer = KafkaProducer(bootstrap_servers=brokers, value_serializer=lambda x: dumps(x).encode('utf-8'))
-# To produce 1000 numbers from 0 to 999
 
 import praw
 
@@ -28,7 +27,7 @@ reddit = praw.Reddit(
     username="chandan1987",
 )
 subreddit = reddit.subreddit("learnpython")
-for submission in subreddit.hot(limit=10):
+for submission in subreddit.hot(limit=100):
     dict={}
     dict['id']=submission.id
     dict['created']=submission.created
