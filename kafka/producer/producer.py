@@ -9,7 +9,9 @@ from globalconfig.base import *
 from config.base import *
 
 # Define Amazon MSK Brokers
-brokers=['b-1.demo-cluster-1.ww4d4r.c7.kafka.us-east-2.amazonaws.com:9092', 'b-1.demo-cluster-1.ww4d4r.c7.kafka.us-east-2.amazonaws.com:9092']
+#brokers=['b-1.demo-cluster-1.ww4d4r.c7.kafka.us-east-2.amazonaws.com:9092', 'b-1.demo-cluster-1.ww4d4r.c7.kafka.us-east-2.amazonaws.com:9092']
+##Below variable defined in /palego/redit/kafka/base.py ###############
+brokers=kafka_broker_list 
 # Define Kafka topic to be produced to
 kafka_topic=kafka_local_topic,
 # A Kafka client that publishes records to the Kafka cluster
