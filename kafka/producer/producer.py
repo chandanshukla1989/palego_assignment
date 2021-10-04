@@ -11,7 +11,7 @@ from config.base import *
 # Define Amazon MSK Brokers
 brokers=['b-1.demo-cluster-1.ww4d4r.c7.kafka.us-east-2.amazonaws.com:9092', 'b-1.demo-cluster-1.ww4d4r.c7.kafka.us-east-2.amazonaws.com:9092']
 # Define Kafka topic to be produced to
-kafka_topic='AWSKafkaTopic'
+kafka_topic=kafka_local_topic,
 # A Kafka client that publishes records to the Kafka cluster
 producer = KafkaProducer(bootstrap_servers=brokers, value_serializer=lambda x: dumps(x).encode('utf-8'))
 # To produce 1000 numbers from 0 to 999
@@ -21,8 +21,8 @@ import praw
 reddit = praw.Reddit(
     client_id="CCXVctIyT5n9JHNStRYdHg",
     client_secret="gW3wfOTtlLVjnjAhgq9vtN7dCRiE0w",
-    password="Comnet@123",
-    user_agent="testscript by u/fakebot3",
+    password="&myuio@@@123",
+    user_agent="palego assignment by u/Chandan1987",
     username="chandan1987",
 )
 subreddit = reddit.subreddit("learnpython")
