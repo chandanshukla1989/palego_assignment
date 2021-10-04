@@ -3,8 +3,10 @@ from json import dumps
 from kafka import KafkaProducer
 import json
 import sys
-sys.path.append('palego/redit/kafka')
-sys.path.append('palego/redit/globalconfig')
+sys.path.append('/palego/redit/kafka')
+sys.path.append('/palego/redit')
+from globalconfig.base import *
+from config.base import *
 
 # Define Amazon MSK Brokers
 brokers=['b-1.demo-cluster-1.ww4d4r.c7.kafka.us-east-2.amazonaws.com:9092', 'b-1.demo-cluster-1.ww4d4r.c7.kafka.us-east-2.amazonaws.com:9092']
