@@ -2,6 +2,10 @@ from time import sleep
 from json import dumps
 from kafka import KafkaProducer
 import json
+import sys
+sys.path.append('palego/redit/kafka')
+sys.path.append('palego/redit/globalconfig')
+
 # Define Amazon MSK Brokers
 brokers=['b-1.demo-cluster-1.ww4d4r.c7.kafka.us-east-2.amazonaws.com:9092', 'b-1.demo-cluster-1.ww4d4r.c7.kafka.us-east-2.amazonaws.com:9092']
 # Define Kafka topic to be produced to
