@@ -5,6 +5,11 @@ import json
 import boto3
 from decimal import *
 import datetime
+import sys
+sys.path.append('/palego/redit/kafka')
+sys.path.append('/palego/redit')
+from globalconfig.base import *
+from config.base import *
 
 def load_to_dynamodb(id,created,url,selftext,upvote_ratio,author,author_premium,over_18,treatment_tags, dynamodb=None):
     if not dynamodb:
