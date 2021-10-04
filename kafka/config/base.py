@@ -1,1 +1,2 @@
-
+kafka_local_topic='AWSKafkaTutorialTopic'
+kafka_broker_list=
