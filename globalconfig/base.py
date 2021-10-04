@@ -1,1 +1,6 @@
-
+aws_region='us-east-2'
+aws_production_dynamo_db='palego_prod'
+aws_dev_dynamo_db='palego_dev'
+aws_sit_dynamo_db='palego_sit'
+aws_uat_dynamo_db='palego_uat'
+aws_uat_dynamo_db='palego_qa'
