@@ -45,7 +45,7 @@ if __name__ == "__main__":
 
     brokers=['b-1.demo-cluster-1.ww4d4r.c7.kafka.us-east-2.amazonaws.com:9092', 'b-1.demo-cluster-1.ww4d4r.c7.kafka.us-east-2.amazonaws.c                                                                                  om:9092']
 # Define Kafka topic to be produced to
-    kafka_topic='AWSKafkaTutorialTopic'
+    kafka_topic=kafka_local_topic
 
 # A Kafka client that consumes records from a Kafka cluster
     consumer1 = KafkaConsumer(
