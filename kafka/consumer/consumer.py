@@ -11,6 +11,25 @@ sys.path.append('/palego/redit')
 from globalconfig.base import *
 from config.base import *
 
+def load_from_producer_to_redis(id,created,url,selftext,upvote_ratio,author,author_premium,over_18,treatment_tags):
+
+    redisClient = redis.StrictRedis(host='redis-cluster-001.neld5g.0001.use2.cache.amazonaws.com',port=6379,db=0,decode_responses=True)
+
+    keys = "SubreditId"
+    print(id)
+    print(redisClient.smembers(keys))
+    print("above is smembers")
+    if id in redisClient.smembers(keys):
+        print("come in if section")
+        print("Cardinality of the Redis set:")
+        print("id is inside if : "+id)
+        print(redisClient.smembers(keys))
+        return
+    else:
+        print("come in else section")
+        redisClient.sadd(keys, id)
+        load_resp = load_to_dynamodb(id,created,url,selftext,upvote_ratio,author,author_premium,over_18,treatment_tags)
+
 def load_to_dynamodb(id,created,url,selftext,upvote_ratio,author,author_premium,over_18,treatment_tags, dynamodb=None):
     if not dynamodb:
         dynamodb = boto3.resource('dynamodb')
@@ -33,7 +52,8 @@ def consume_msg_dynamodb(consumer):
         author_premium=final_dictionary['author_premium']
         over_18=final_dictionary['over_18']
         treatment_tags=final_dictionary['treatment_tags']
-        load_resp = load_to_dynamodb(id,created,url,selftext,upvote_ratio,author,author_premium,over_18,treatment_tags)
+        #load_resp = load_to_dynamodb(id,created,url,selftext,upvote_ratio,author,author_premium,over_18,treatment_tags)
+        load_resp = load_from_producer_to_redis(id,created,url,selftext,upvote_ratio,author,author_premium,over_18,treatment_tags)
         print('this msg is :'+'{}'.format(id))
 def consume_msg_rds(consumer):
     for message in consumer:
